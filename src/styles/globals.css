@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fffdf7;
+  --color-charcoal: #18181b;
+  --color-zinc-deep: #09090b;
+
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-charcoal);
+
+  --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.08);
+  --shadow-glass-lg: 0 24px 80px rgb(0 0 0 / 0.12);
+
+  --blur-glass: 20px;
+}
+
+@layer utilities {
+  .font-arima {
+    font-family: var(--font-arima), ui-serif, Georgia, serif;
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --page-bg: #fffdf7;
+    --text-primary: #18181b;
+    --glass-bg: rgb(255 253 247 / 0.72);
+    --glass-border: rgb(24 24 27 / 0.08);
+    --muted: rgb(24 24 27 / 0.55);
+    --accent: #6366f1;
+    --accent-soft: rgb(99 102 241 / 0.15);
+  }
+
+  .dark {
+    color-scheme: dark;
+    --page-bg: #09090b;
+    --text-primary: #fafafa;
+    --glass-bg: rgb(9 9 11 / 0.65);
+    --glass-border: rgb(255 255 255 / 0.08);
+    --muted: rgb(244 244 245 / 0.55);
+    --accent: #a5b4fc;
+    --accent-soft: rgb(165 180 252 / 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--page-bg);
+    color: var(--text-primary);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@utility glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@layer components {
+  .shine-cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine-cta::before {
+    content: "";
+    position: absolute;
+    inset: -150%;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgb(255 255 255 / 0.35) 45%,
+      transparent 60%
+    );
+    animation: shine-sweep 2.8s ease-in-out infinite;
+  }
+}
+
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-40%) rotate(12deg);
+  }
+  100% {
+    transform: translateX(40%) rotate(12deg);
+  }
+}
