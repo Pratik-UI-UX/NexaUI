@@ -75,7 +75,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 border-t border-zinc-200/70 pt-12 dark:border-white/10">
-          <p className="select-none text-center font-arima text-[clamp(2.75rem,14vw,7.5rem)] font-bold uppercase leading-[0.95] tracking-tight bg-gradient-to-b from-zinc-950 via-zinc-700 to-white bg-clip-text text-transparent dark:from-zinc-100 dark:via-zinc-400 dark:to-zinc-700">
+          <p className="select-none text-center font-arima text-[clamp(8rem,18vw,20.5rem)] font-bold uppercase leading-[0.95] tracking-tight bg-gradient-to-b from-black/20 via-white/20 to-white/80 bg-clip-text text-transparent">
             Nexa UI
           </p>
         </div>
